@@ -85,13 +85,13 @@ public class Hunter extends Character {
 		if(north != null && !holeNear && north.getType() == 'H'){
 			holeNear = true;
 		}
-		if(south != null && !holeNear && north.getType() == 'H'){
+		if(south != null && !holeNear && south.getType() == 'H'){
 			holeNear = true;
 		}
-		if(west != null && !holeNear && north.getType() == 'H'){
+		if(west != null && !holeNear && west.getType() == 'H'){
 			holeNear = true;
 		}
-		if(east != null && !holeNear && north.getType() == 'H'){
+		if(east != null && !holeNear && east.getType() == 'H'){
 			holeNear = true;
 		}
 		
