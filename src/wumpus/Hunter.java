@@ -212,12 +212,110 @@ public class Hunter extends Character {
 		return wallHit;
 	}
 	
+	/**
+	 * Throws an arrow according the orientation of the hunter
+	 * @param mapSize Used to set the arrow path
+	 * @param c Wumpus object to get its position
+	 * @return True if the Wumpus is hitted by the arrow or false if it isn't
+	 */
+	public boolean throwArrow(int mapSize, Character c){
+		boolean hitWumpus = false;
+		
+		if(this.arrows > 0){
+			switch(this.orientation){
+			case 'N':
+				hitWumpus = throwArrowToNorth(mapSize, c);
+				break;
+			case 'E':
+				hitWumpus = throwArrowToEast(mapSize, c);
+				break;
+			case 'S':
+				hitWumpus = throwArrowToSouth(mapSize, c);
+				break;
+			case 'W':
+				hitWumpus = throwArrowToWest(mapSize, c);
+				break;
+			}
+			this.arrows--;
+		}
+		
+		return hitWumpus;
+	}	
+	
+	/**
+	 * Throw the arrow to the north of the hunter
+	 * @param mapSize Current size of the map
+	 * @param c Wumpus object
+	 * @return True if the wumpus is hitted or false if it isn't
+	 */
+	private boolean throwArrowToNorth(int mapSize, Character c) {
+		boolean hit = false;
+		for(int i = getxPos(); i >= 0; i--){
+			if(i == c.getxPos() && getyPos() == c.getyPos()){
+				hit = true;
+			}
+		}
+		return hit;
+	}
+	
+	/**
+	 * Throw the arrow to the south of the hunter
+	 * @param mapSize Current size of the map
+	 * @param c Wumpus object
+	 * @return True if the wumpus is hitted or false if it isn't
+	 */
+	private boolean throwArrowToSouth(int mapSize, Character c) {
+		boolean hit = false;
+		for(int i = getxPos(); i < mapSize; i++){
+			if(i == c.getxPos() && getyPos() == c.getyPos()){
+				hit = true;
+			}
+		}
+		return hit;
+	}
+	
+	/**
+	 * Throw the arrow to the east of the hunter
+	 * @param mapSize Current size of the map
+	 * @param c Wumpus object
+	 * @return True if the wumpus is hitted or false if it isn't
+	 */
+	private boolean throwArrowToEast(int mapSize, Character c) {
+		boolean hit = false;
+		for(int i = getyPos(); i < mapSize; i++){
+			if(i == c.getyPos() && getxPos() == c.getxPos()){
+				hit = true;
+			}
+		}
+		return hit;
+	}
+	
+	/**
+	 * Throw the arrow to the west of the hunter
+	 * @param mapSize Current size of the map
+	 * @param c Wumpus object
+	 * @return True if the wumpus is hitted or false if it isn't
+	 */
+	private boolean throwArrowToWest(int mapSize, Character c) {
+		boolean hit = false;
+		for(int i = getyPos(); i >= 0; i--){
+			if(i == c.getyPos() && getxPos() == c.getxPos()){
+				hit = true;
+			}
+		}
+		return hit;
+	}
+
 	public boolean isGoldTaken(){
 		return this.gotGold;
 	}
 	
 	public char getOrientation() {
 		return orientation;
+	}
+	
+	public int getArrowsNumber() {
+		return arrows;
 	}
 
 }

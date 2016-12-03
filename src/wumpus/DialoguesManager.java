@@ -40,5 +40,6 @@ public class DialoguesManager {
 	public final static String ARROWS_NUMBER_ASK = "Introduce el numero de flechas que deseas (Numero positivo): ";
 	public final static String MAP_SIZE_ASK = "Introduce el tamaño del mapa (Numero positivo mayor que 1): ";
 	public final static String IMPOSSIBLE_MAP = "Es imposible generar un mapa con las caracteristicas solicitadas, pon menos pozos o haz el mapa mas grande.";
+	public final static String ARROWS_INSUFICIENTS = "No te quedan flechas";
 	
 }

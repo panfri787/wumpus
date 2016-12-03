@@ -149,6 +149,7 @@ public class GameEngine {
 			hunter.rotate('R');
 			break;
 		case DialoguesManager.BOW_COMMAND:
+			arrowCommand();
 			break;
 		case DialoguesManager.EXIT_COMMAND:
 			exitCommand();
@@ -163,7 +164,6 @@ public class GameEngine {
 			correctCommand = false;
 			break;
 		}
-		sc.close();
 		return correctCommand;
 	}
 	
@@ -181,6 +181,20 @@ public class GameEngine {
 		} else {
 			System.out.println(DialoguesManager.NOT_AT_EXIT);
 			System.out.println();
+		}
+	}
+	
+	/**
+	 * Manages the arrow throw command
+	 */
+	private static void arrowCommand(){
+		if(hunter.getArrowsNumber()>0){
+			if(hunter.throwArrow(board.getSize(), wumpus)){
+				wumpus.setDead();
+				System.out.println(DialoguesManager.WUMPUS_DEAD);
+			}
+		} else {
+			System.out.println(DialoguesManager.ARROWS_INSUFICIENTS);
 		}
 	}
 	
