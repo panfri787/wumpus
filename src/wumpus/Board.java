@@ -183,6 +183,10 @@ public class Board {
 	
 	public void setLockedCells(int lockedCells) {
 		this.lockedCells = lockedCells;
-	}	
+	}
+	
+	public int getSize() {
+		return size;
+	}
 
 }
