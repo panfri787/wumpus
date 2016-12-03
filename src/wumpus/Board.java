@@ -110,7 +110,7 @@ public class Board {
 						holesToPlace--;
 						selectedCell.setType('H');
 					}
-				} while (selectedCell == null && selectedCell.getType() != 'H');
+				} while (selectedCell == null || selectedCell.getType() != 'H');
 			} 
 		}
 		return holesFitInBoard;
@@ -134,7 +134,7 @@ public class Board {
 				selectedCell.setType('E');
 				this.exitCell = selectedCell;
 			}			
-		} while (selectedCell == null && !selectedCell.isLocked());
+		} while (selectedCell == null || !selectedCell.isLocked());
 	}
 	
 	/**

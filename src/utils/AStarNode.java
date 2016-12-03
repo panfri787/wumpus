@@ -92,6 +92,7 @@ public class AStarNode extends Cell implements Comparator{
 		int result;
 		
 		result = 10*(Math.abs(this.getX() - n.getX()) + Math.abs(this.getY() - n.getY()));
+		this.h = result;
 		
 		return result;
 	}
