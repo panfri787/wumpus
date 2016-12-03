@@ -112,19 +112,19 @@ public class Hunter extends Character {
 	
 	public boolean checkWumpusNear(Character c){
 		boolean wumpusNear = false;
-		if(!wumpusNear && getxPos()-1 == c.getxPos()){
+		if(!wumpusNear && getxPos()-1 == c.getxPos() && getyPos() == c.getyPos()){
 			wumpusNear = true;
 		}
 		
-		if(!wumpusNear && getxPos()+1 == c.getxPos()){
+		if(!wumpusNear && getxPos()+1 == c.getxPos() && getyPos() == c.getyPos()){
 			wumpusNear = true;
 		}
 		
-		if(!wumpusNear && getyPos()-1 == c.getyPos()){
+		if(!wumpusNear && getyPos()-1 == c.getyPos() && getxPos() == c.getxPos()){
 			wumpusNear = true;
 		}
 		
-		if(!wumpusNear && getyPos()+1 == c.getyPos()){
+		if(!wumpusNear && getyPos()+1 == c.getyPos() && getxPos() == c.getxPos()){
 			wumpusNear = true;
 		}
 			
