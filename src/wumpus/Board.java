@@ -94,10 +94,11 @@ public class Board {
 		Random randomGenerator = new Random();
 		Cell selectedCell = null;
 		boolean holesFitInBoard = false;
+		int holesToPlace = holesNumber;
 		
 		if (holesNumber <= (size*size)-lockedCells) {
 			holesFitInBoard = true;
-			for (int i = 0; i < holesNumber; i++) {
+			while (holesToPlace > 0) {
 				do {
 					int x = randomGenerator.nextInt(this.size);
 					int y = randomGenerator.nextInt(this.size);
@@ -106,8 +107,8 @@ public class Board {
 					if (selectedCell != null && !selectedCell.isLocked()) {
 						selectedCell.setLocked(true);
 						this.lockedCells++;
+						holesToPlace--;
 						selectedCell.setType('H');
-						this.exitCell = selectedCell;
 					}
 				} while (selectedCell != null && selectedCell.getType() != 'H');
 			} 
@@ -154,7 +155,7 @@ public class Board {
 				selectedCell.setType('G');
 				this.goldCell = selectedCell;
 			}			
-		} while (selectedCell != null && !selectedCell.isLocked());
+		} while (selectedCell != null && !selectedCell.isLocked() && selectedCell.getType() == 'E');
 	}
 	
 	/**
@@ -163,7 +164,7 @@ public class Board {
 	public void printBoard(){
 		for (int i = 0; i < this.size; i++) {
 			for (int j = 0; j < this.size; j++) {
-				System.out.print(this.getCell(i, j).getType());
+				System.out.print(this.getCell(i, j).getType() + " ");
 			}
 			System.out.println();
 		}
