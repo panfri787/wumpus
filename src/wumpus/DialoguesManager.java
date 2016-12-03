@@ -1,5 +1,10 @@
 package wumpus;
 
+/**
+ * Class which contains all the dialogues of the game
+ * @author Pablo
+ *
+ */
 public class DialoguesManager {
 	public final static String AT_HOLE = "Has caido por un pozo.";
 	public final static String AT_EXIT_WITH_GOLD ="¡Enhorabuena! Encontraste el oro y saliste de la mazmorra sano y salvo.";
