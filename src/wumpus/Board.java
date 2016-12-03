@@ -110,7 +110,7 @@ public class Board {
 						holesToPlace--;
 						selectedCell.setType('H');
 					}
-				} while (selectedCell != null && selectedCell.getType() != 'H');
+				} while (selectedCell == null && selectedCell.getType() != 'H');
 			} 
 		}
 		return holesFitInBoard;
@@ -134,7 +134,7 @@ public class Board {
 				selectedCell.setType('E');
 				this.exitCell = selectedCell;
 			}			
-		} while (selectedCell != null && !selectedCell.isLocked());
+		} while (selectedCell == null && !selectedCell.isLocked());
 	}
 	
 	/**
@@ -149,13 +149,13 @@ public class Board {
 			int y = randomGenerator.nextInt(this.size);
 			selectedCell = this.getCell(x, y);
 			
-			if (selectedCell != null && !selectedCell.isLocked()) {
+			if ((selectedCell != null) && (selectedCell.getType() != 'E')) {
 				selectedCell.setLocked(true);
 				this.lockedCells++;
 				selectedCell.setType('G');
 				this.goldCell = selectedCell;
 			}			
-		} while (selectedCell != null && !selectedCell.isLocked() && selectedCell.getType() == 'E');
+		} while (this.goldCell == null);
 	}
 	
 	/**
