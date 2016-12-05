@@ -27,9 +27,9 @@ public class Main {
 			if(!gameCreated){
 				System.out.println(DialoguesManager.IMPOSSIBLE_MAP);
 			} else {
-				GameEngine.getBoard().printBoard();
-				Wumpus w = GameEngine.getWumpus();
-				System.out.println("El wumpus esta en la "+ w.getxPos()+", "+w.getyPos());
+				//GameEngine.getBoard().printBoard();
+				//Wumpus w = GameEngine.getWumpus();
+				//System.out.println("El wumpus esta en la "+ w.getxPos()+", "+w.getyPos());
 				GameEngine.startGame();
 			}
 		}
